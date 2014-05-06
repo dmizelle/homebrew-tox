@@ -11,10 +11,12 @@ class Libtoxcore < Formula
   depends_on "libtool"
   depends_on "check"
   depends_on "pkg-config"
+  depends_on "opus"
+  depends_on "libvpx"
 
   def install
     system "autoreconf", "-i"
-    system "./configure", "--prefix=#{prefix}", "--disable-ntox"
+    system "./configure", "--prefix=#{prefix}", "--disable-ntox", "--enable-av"
     system "make"
     system "make", "install"
   end
